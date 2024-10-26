@@ -19,7 +19,7 @@ import cloze from "./cloze.js";
 import jsPsychSurveySlider from "@jspsych-contrib/plugin-survey-slider";
 import survey from "@jspsych/plugin-survey";
 import { proliferate } from "./proliferate.js";
-import browserCheck from '@jspsych/plugin-browser-check';
+import jsPsychBrowserCheck from '@jspsych/plugin-browser-check';
 
 import {
   build_maze,
