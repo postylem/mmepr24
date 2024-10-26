@@ -19,6 +19,7 @@ import cloze from "./cloze.js";
 import jsPsychSurveySlider from "@jspsych-contrib/plugin-survey-slider";
 import survey from "@jspsych/plugin-survey";
 import { proliferate } from "./proliferate.js";
+import browserCheck from '@jspsych/plugin-browser-check';
 
 import {
   build_maze,
@@ -78,6 +79,12 @@ export async function run({
     stimulus: CONSENT,
     choices: ["Continue"],
     response_ends_trial: true,
+  };
+
+  var windowSizeCheck = {
+    type: jsPsychBrowserCheck,
+    minimum_width: 800,
+    minimum_height: 600
   };
 
   let post_test_questions = {
@@ -226,6 +233,7 @@ export async function run({
     let timeline = [];
 
     timeline.push(consent);
+    timeline.push(windowSizeCheck);
     let maze_timeline = {
       timeline: [maze_instructions, maze_practice, maze_trial, comprehension_q],
       timeline_variables: maze_item,
